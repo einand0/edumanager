@@ -1,4 +1,4 @@
 package com.einando.edumanager.dto;
 
-public record EnrollmentRequestDTO(String enrollmentDate) {
+public record EnrollmentRequestDTO(Long alunoId, Long courseId) {
 }
