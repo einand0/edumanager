@@ -1,4 +1,4 @@
 package com.einando.edumanager.dto;
 
-public record CourseRequestDTO(String title, String description) {
+public record CourseRequestDTO(String title, String description, Long teacherId) {
 }
