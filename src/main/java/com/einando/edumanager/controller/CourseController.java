@@ -1,6 +1,7 @@
 package com.einando.edumanager.controller;
 
 import com.einando.edumanager.dto.CourseRequestDTO;
+import com.einando.edumanager.dto.CourseResponseDTO;
 import com.einando.edumanager.entity.Course;
 import com.einando.edumanager.service.CourseService;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class CourseController {
     }
 
     @PostMapping
-    public ResponseEntity<Course> createCourse(@RequestBody CourseRequestDTO dto){
+    public ResponseEntity<CourseResponseDTO> createCourse(@RequestBody CourseRequestDTO dto){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(courseService.createCourse(dto));
     }

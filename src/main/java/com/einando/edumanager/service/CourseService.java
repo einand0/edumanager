@@ -1,6 +1,7 @@
 package com.einando.edumanager.service;
 
 import com.einando.edumanager.dto.CourseRequestDTO;
+import com.einando.edumanager.dto.CourseResponseDTO;
 import com.einando.edumanager.entity.Course;
 import com.einando.edumanager.entity.Teacher;
 import com.einando.edumanager.repository.CourseRepository;
@@ -18,7 +19,7 @@ public class CourseService {
         this.teacherRepository = teacherRepository;
     }
 
-    public Course createCourse(CourseRequestDTO dto){
+    public CourseResponseDTO createCourse(CourseRequestDTO dto){
 
         Teacher findedTeacher = teacherRepository.findById(dto.teacherId())
                 .orElseThrow(() -> new RuntimeException("Professor não encontrado."));
@@ -27,7 +28,8 @@ public class CourseService {
         newCourse.setTitle(dto.title());
         newCourse.setDescription(dto.description());
         newCourse.setTeacher(findedTeacher);
+        courseRepository.save(newCourse);
 
-        return courseRepository.save(newCourse);
+        return new CourseResponseDTO(newCourse.getId(), newCourse.getTitle(), newCourse.getDescription(), newCourse.getTeacher().getName());
     }
 }
