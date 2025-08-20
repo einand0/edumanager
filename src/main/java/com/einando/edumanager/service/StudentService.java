@@ -20,6 +20,7 @@ public class StudentService {
         Student newStudent = new Student();
         newStudent.setName(dto.name());
         newStudent.setEmail(dto.email());
+
         return studentRepository.save(newStudent);
     }
 
