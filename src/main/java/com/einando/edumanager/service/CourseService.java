@@ -3,10 +3,13 @@ package com.einando.edumanager.service;
 import com.einando.edumanager.dto.CourseRequestDTO;
 import com.einando.edumanager.dto.CourseResponseDTO;
 import com.einando.edumanager.entity.Course;
+import com.einando.edumanager.entity.Student;
 import com.einando.edumanager.entity.Teacher;
 import com.einando.edumanager.repository.CourseRepository;
 import com.einando.edumanager.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CourseService {
@@ -32,4 +35,15 @@ public class CourseService {
 
         return new CourseResponseDTO(newCourse.getId(), newCourse.getTitle(), newCourse.getDescription(), newCourse.getTeacher().getName());
     }
+
+    public List<String> findAllStudentsFromCourse(Long id){
+        Course findedCourse = courseRepository.findById(id).
+                orElseThrow(() -> new RuntimeException("Curso não encontrado"));
+
+        List<String> students = findedCourse.getEnrollments().stream().map(enrollment -> enrollment.getStudent().getName()).toList();
+
+        return students;
+    }
+
+
 }
