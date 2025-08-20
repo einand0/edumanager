@@ -18,9 +18,9 @@ public class CourseService {
         this.teacherRepository = teacherRepository;
     }
 
-    public Course createCourse(CourseRequestDTO dto, Long id){
+    public Course createCourse(CourseRequestDTO dto){
 
-        Teacher findedTeacher = teacherRepository.findById(id)
+        Teacher findedTeacher = teacherRepository.findById(dto.teacherId())
                 .orElseThrow(() -> new RuntimeException("Professor não encontrado."));
 
         Course newCourse = new Course();
