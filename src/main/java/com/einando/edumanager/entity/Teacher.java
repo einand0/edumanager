@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "teachers")
 @NoArgsConstructor
@@ -19,4 +21,7 @@ public class Teacher {
     private Long id;
     private String name;
     private String speciality;
+
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Course> courses;
 }

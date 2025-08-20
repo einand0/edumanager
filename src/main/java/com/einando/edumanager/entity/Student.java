@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "students")
 @NoArgsConstructor
@@ -19,4 +21,7 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+
+    @OneToMany(mappedBy = "student")
+    private List<Enrollment> enrollments;
 }
