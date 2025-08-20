@@ -23,6 +23,7 @@ Este projeto foi feito para estudo de **relacionamentos JPA**, **API REST** e **
 com.einando.edumanager
 
 │
+
 ├── entity → entidades JPA (Student, Teacher, Course, Enrollment)
 
 ├── repository → interfaces JpaRepository
