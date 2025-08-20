@@ -9,7 +9,7 @@ Este projeto foi feito para estudo de **relacionamentos JPA**, **API REST** e **
 ---
 
 ## 🛠 Tecnologias utilizadas
-- Java 17  
+- Java 21
 - Spring Boot 3.x  
 - Spring Data JPA  
 - H2 Database (em memória)  
@@ -21,13 +21,17 @@ Este projeto foi feito para estudo de **relacionamentos JPA**, **API REST** e **
 ## 📦 Estrutura do projeto
 
 com.einando.edumanager
+
 │
 ├── entity → entidades JPA (Student, Teacher, Course, Enrollment)
+
 ├── repository → interfaces JpaRepository
+
 ├── service → lógica de negócio
+
 ├── controller → endpoints REST
+
 ├── dto → Data Transfer Objects (para requests/responses)
-└── config → configurações (ex.: H2, Swagger se houver)
 
 
 ---
@@ -37,7 +41,6 @@ com.einando.edumanager
 2. Matricular alunos em cursos (Many-to-Many via Enrollment)  
 3. Listar cursos de um aluno  
 4. Listar alunos de um curso  
-5. (Opcional) Adicionar notas finais por matrícula  
 
 ---
 
